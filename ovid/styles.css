@@ -1,0 +1,560 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #87CEEB; /* light blue background */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.normal-container {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.normal-container h1 {
+  font-size: 3rem;
+  color: #f8f8f8; /* dark blue */
+}
+
+.normal-container p {
+  font-size: 1.2rem;
+  color: greenyellow;
+}
+
+.slides {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  padding-bottom: 190px; /* Add padding at the bottom of the slides */
+}
+
+.carousel {
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dots {
+    position: absolute;
+    bottom: 0; /* Position the dots 3 inches below the slides */
+    left: 0;
+    right: 0;
+    text-align: center;
+
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #2E4053;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.dot.active {
+  background-color: white; /* dark blue */
+}
+
+.no-more-info {
+  display: none; /* Hide the no more information message */
+}
+
+
+
+
+
+
+
+.login-box h2 {
+  font-size: 2rem;
+  color: #2E4053; /* dark blue */
+  margin-bottom: 20px;
+}
+
+.login-box label {
+  display: block;
+  font-size: 1.2rem;
+  color: #2E4053; /* dark blue */
+  margin-bottom: 5px;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #F5F5F5; /* light gray */
+  margin-bottom: 10px;
+}
+
+.login-box input[type="email"]:focus,
+.login-box input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-box .forgot-password {
+  display: block;
+  font-size: 1.2rem;
+  color: #2E4053; /* dark blue */
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.login-box .forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-box button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2E4053; /* dark blue */
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.login-box button[type="submit"]:hover {
+  background-color: #1A2330; /* darker blue */
+}
+
+.login-box p {
+  font-size: 1.2rem;
+  color: #2E4053; /* dark blue */
+  margin-top: 20px;
+}
+
+.login-box p a {
+  color: #2E4053; /* dark blue */
+  text-decoration: none;
+}
+
+.login-box p a:hover {
+  text-decoration: underline;
+}
+
+@keyframes slide {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+     transform: translateX(0);
+  }
+}
+
+.carousel.slide {
+  animation: slide 5s infinite;
+}
+
+.carousel.slide-1 {
+  animation-delay: 0s;
+}
+
+.carousel.slide-2 {
+  animation-delay: 2s;
+}
+
+.carousel.slide-3 {
+  animation-delay: 4s;
+}
+
+.carousel.slide-4 {
+  animation-delay: 6s;
+}
+
+.carousel.slide-5 {
+  animation-delay: 8s;
+}
+
+
+.password-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-eye::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f06e"; /* eye icon */
+  font-size: 18px;
+  color: #2E4053; /* dark blue */
+}
+
+.password-eye:hover::before {
+  color: #1A2330; /* darker blue */
+}
+
+
+
+/* For screens with a maximum width of 768px (e.g., tablets and large phones) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .normal-container {
+    flex: none;
+    width: 100%;
+    padding: 10px;
+  }
+  .login-container {
+    margin: 20px;
+    padding: 10px;
+  }
+  .login-box {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* For screens with a maximum width of 480px (e.g., small phones) */
+@media (max-width: 480px) {
+  .normal-container {
+    padding: 5px;
+  }
+  .login-container {
+    margin: 10px;
+    padding: 5px;
+  }
+  .login-box {
+    padding: 5px;
+  }
+  .login-box input[type="email"],
+  .login-box input[type="password"] {
+    padding: 5px;
+  }
+  .login-box button[type="submit"] {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .container {
+    flex-direction: column;
+  }
+  .login-container {
+    order: 1;
+  }
+  .normal-container {
+    order: 2;
+  }
+}
+
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .container {
+     flex-direction: column;
+   }
+  .login-container {
+     order: 1;
+   }
+  .normal-container {
+     order: 2;
+   }
+ }
+
+
+
+/* For iPad Pro and iPad Mini */
+@media (max-width: 1024px) and (-webkit-device-pixel-ratio: 2) {
+  .container {
+    flex-direction: column;
+  }
+  .login-container {
+    order: 1;
+  }
+  .normal-container {
+    order: 2;
+  }
+}
+
+/* For iPad Mini */
+@media (max-width: 768px) and (-webkit-device-pixel-ratio: 2) {
+  .container {
+    flex-direction: column;
+  }
+  .login-container {
+    order: 1;
+  }
+  .normal-container {
+    order: 2;
+  }
+}
+
+
+
+ 
+
+ 
+
+
+.login-box {
+  margin: 0 auto; /* center the login box horizontally */
+  box-sizing: border-box; /* ensure that padding is included in the width calculation */
+}
+
+
+
+
+
+ /* For iPhone in portrait orientation */
+@media (max-width: 480px) and (orientation: portrait) {
+  .container {
+    flex-direction: column-reverse;
+  }
+  .login-container {
+    order: 1;
+  }
+  .normal-container {
+    order: 2;
+  }
+}
+
+
+/* For phones in portrait mode */
+@media (max-width: 767px) and (orientation: portrait) {
+  .container {
+     flex-direction: column;
+   }
+  .login-container {
+     order: 1;
+   }
+  .normal-container {
+     order: 2;
+   }
+ }
+
+
+
+ .welcome-message img {
+  width: 25%; /* set the width to 25% of the parent container */
+  height: auto; /* set the height to auto to maintain the aspect ratio */
+  margin-bottom: 20px; /* add some space between the image and the welcome message */
+  border-radius: 50%; /* make the image a circle */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
+}
+
+
+mark {
+  background-color: #FFC5C5; /* light pink */
+  font-size: 1.2em; /* increase text size */
+  padding: 0.2em; /* add some padding to make it look nicer */
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c6e4e7; /* light cyan */
+  margin-bottom: 150px;
+  padding-top: 20px;
+  margin-right: 100px;
+  margin-top: 120px;
+  margin-left: 100px;
+  width: 30vw; /* set the width to 40% of the viewport width */
+  height: 85vh; /* increase the height to 75% of the viewport height */
+}
+
+.login-image {
+  width: 150px; /* adjust the width to your liking */
+  height: 150px; /* adjust the height to your liking */
+  margin: 40px auto 10px; /* add more space above the image */
+  border-radius: 50%; /* make the image a circle */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
+  display: block; /* make the image a block element to center it horizontally */
+}
+
+.login-box {
+  width: 75%; /* decrease the width of the login box */
+}
+
+.login-box p {
+  text-align: center; /* center the text */
+  margin-bottom: 10px; /* add some space below the text */
+}
+
+@media (max-width: 768px) {
+  .login-container {
+     width: 60vw; /* set the width to 60% of the viewport width on smaller screens */
+   }
+ }
+ 
+ @media (max-width: 480px) {
+  .login-container {
+     width: 80vw;
+     height: 90vh; /* set the width to 80% of the viewport width on very small screens */
+   }
+ }
+
+ .status-indicator {
+  display: inline-block;
+  font-size: 24px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  text-align: center;
+  margin-bottom: -30px;
+}
+
+.dot.loading {
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.status-text {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.status-text.good {
+  color: #0f0; /* green */
+}
+
+.status-text.bad {
+  color: #000; /* black */
+}
+
+
+
+
+ /* Style for dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #2E4053; /* dark blue */
+}
+
+.dot:hover {
+  background-color: #1A2330; /* darker blue */
+}
+ 
+.login-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c6e4e7; /* light cyan */
+  margin-bottom: 150px;
+  padding-top: 20px;
+  margin-right: 100px;
+  margin-top: 120px;
+  margin-left: 100px;
+  width: 40%; /* set the width to 40% of the viewport width */
+  height: 85vh; /* increase the height to 75% of the viewport height */
+}
+
+.normal-container {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+/* For iPhone in portrait orientation */
+@media (max-width: 480px) and (orientation: portrait) {
+  .login-container {
+    width: 90%; /* decrease the width on smaller screens */
+    margin-left: 0; /* adjust margin-left to center it horizontally */
+    margin-right: 0; /* adjust margin-right to center it horizontally */
+    margin-top: 10vh; /* adjust margin-top to move it down a bit */
+    margin-bottom: 5vh; /* adjust margin-bottom to move it up a bit */
+    height: auto; /* adjust height to fit content */
+  }
+}
+
+/* For phones in portrait mode */
+@media (max-width: 767px) and (orientation: portrait) {
+  .login-container {
+    width: 90%; /* decrease the width on smaller screens */
+    margin-left: 0; /* adjust margin-left to center it horizontally */
+    margin-right: 0; /* adjust margin-right to center it horizontally */
+    margin-top: 10vh; /* adjust margin-top to move it down a bit */
+    margin-bottom: 5vh; /* adjust margin-bottom to move it up a bit */
+    height: auto; /* adjust height to fit content */
+  }
+}
+
+/* For iPhone in landscape orientation */
+@media (max-width: 480px) and (orientation: landscape) {
+  .login-container {
+    width: 80%; /* increase the width on smaller screens */
+    height: 50px; /* adjust height to fit content */
+    margin-top: 0 ; /* adjust margin-top to move it up a bit */
+    margin-bottom: 100px; /* adjust margin-bottom to move it down a bit */
+    ; /* adjust padding-top to move it up a bit */
+   ; /* adjust padding-bottom to move it down a bit */
+    box-shadow: none; /* remove box shadow in landscape mode */
+}
+}
+
+/* For phones in landscape mode */
+@media (max-width: 767px) and (orientation: landscape) {
+   .login-container {
+     width: 70%; /* increase the width on smaller screens */
+     height: 50px; /* adjust height to fit content */
+     margin-top: 0px; /* adjust margin-top to move it up a bit */
+     margin-bottom: 100px; /* adjust margin-bottom to move it down a bit */
+      /* adjust padding-bottom to move it down a bit */
+     box-shadow: none; /* remove box shadow in landscape mode */
+   }
+}
