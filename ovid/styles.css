@@ -273,8 +273,8 @@ mark {
   justify-content: center;
   align-items: center;
   background-color: transparent; /* light cyan */
-  margin-bottom: 150px;
-  padding-top: 20px;
+  margin-bottom: 80px;
+  padding-top: 120px;
   margin-right: 100px;
   margin-top: 120px;
   margin-left: 100px;
@@ -283,11 +283,21 @@ mark {
 }
 
 .login-image {
-  width: 150px; /* adjust the width to your liking */
-  height: 150px; /* adjust the height to your liking */
-  margin: 40px auto 10px; /* add more space above the image */
-  border-radius: 50%; /* make the image a circle */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
+  width: 20%; /* set the width to 25% of the parent container */
+  height: 18%; /* set the height to auto to maintain the aspect ratio */
+  
+  
+  
+  
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    position: absolute;
+    bottom: 65%;
+    left: 71%;
+    transform: translate(-50%, -50%);
+  
   display: block; /* make the image a block element to center it horizontally */
 }
 
